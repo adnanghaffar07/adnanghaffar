@@ -48,8 +48,11 @@ code {
 }
 
 .custom-swiper-pagination .swiper-pagination {
+  position: absolute;
   bottom: -4px;
   z-index: 99;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .custom-swiper-pagination .swiper-pagination-bullet {
