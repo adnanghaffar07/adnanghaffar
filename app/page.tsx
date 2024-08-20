@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
@@ -89,8 +89,44 @@ const achievementCards = [
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [slideStyle, setSlideStyle] = useState({
+    width: "304px",
+    height: "286px",
+  });
+  const [achievementSlideStyle, setAchievementSlideStyle] = useState({
+    width: "304px",
+    height: "326px",
+  });
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+
+  useEffect(() => {
+    const updateSlideStyle = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 768) {
+        setSlideStyle({ width: "250px", height: "215px" });
+      } else {
+        setSlideStyle({ width: "304px", height: "286px" });
+      }
+    };
+    updateSlideStyle();
+    const updateAchievementSlideStyle = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth < 768) {
+        setAchievementSlideStyle({ width: "250px", height: "265px" });
+      } else {
+        setAchievementSlideStyle({ width: "304px", height: "326px" });
+      }
+    };
+    updateAchievementSlideStyle();
+    window.addEventListener("resize", updateSlideStyle);
+    window.addEventListener("resize", updateAchievementSlideStyle);
+
+    return () => {
+      window.removeEventListener("resize", updateSlideStyle);
+      window.removeEventListener("resize", updateAchievementSlideStyle);
+    };
+  }, []);
 
   return (
     <>
@@ -392,6 +428,7 @@ export default function Home() {
               <SwiperSlide
                 className="flex flex-col px-6 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] border-b-indigo-600 h-[215px] md:h-[286px] w-[250px] md:w-[304px] max-md:px-5"
                 key={index}
+                style={slideStyle}
               >
                 <div className="flex justify-center items-center bg-white rounded-lg shadow-[0px_0px_12px_rgba(0,0,0,0.1)] w-[40px] md:w-[60px] h-[40px] md:h-[60px]">
                   <Image
@@ -412,7 +449,14 @@ export default function Home() {
                 </div>
               </SwiperSlide>
             ))}
-            <div className="swiper-pagination"></div>
+            <div
+              className="swiper-pagination"
+              style={{
+                position: "absolute",
+                bottom: "-4px",
+                zIndex: 50,
+              }}
+            ></div>
             <div className="swiper-button-next"></div>
             <div className="swiper-button-prev"></div>
           </Swiper>
@@ -725,6 +769,7 @@ export default function Home() {
               <SwiperSlide
                 className="flex flex-col px-6 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] border-b-indigo-600 h-[265px] md:h-[326px] w-[250px] md:w-[304px] max-md:px-5"
                 key={index}
+                style={achievementSlideStyle}
               >
                 <div className="flex justify-center items-center bg-white rounded-lg shadow-[0px_0px_12px_rgba(0,0,0,0.1)] w-[40px] md:w-[60px] h-[40px] md:h-[60px]">
                   <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] text-2xl sm:text-3xl md:text-4xl font-medium h-[40px] w-[40px] flex justify-center items-center">
@@ -753,7 +798,7 @@ export default function Home() {
         <div className="px-24 pb-6 md:pb-16 bg-[linear-gradient(245deg,rgba(245,252,255,0.00_1.85%,#F5FCFF_65.77%),#F5FCFF)] max-md:px-5">
           <div className="flex flex-col items-center pt-6 sm:pt-16 pb-6 border-t-2 border-black border-opacity-10 max-md:max-w-full">
             <div className="flex flex-col lg:flex-row gap-6 md:gap-10 lg:gap-20 xl:gap-36 items-start max-md:max-w-full">
-              <div className="flex flex-col items-start min-w-[240px] w-[360px]">
+              <div className="flex flex-col items-start min-w-[240px] max-w-[360px]">
                 <div className="flex flex-col w-full">
                   <h2 className="md:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] text-2xl sm::text-4xl pb-1">
                     Let’s work together
