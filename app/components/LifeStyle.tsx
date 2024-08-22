@@ -319,7 +319,11 @@ const LifeStyle = () => {
           {selected === "content" && (
             <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-10 2xl:gap-12">
               {contentWriting?.map((content, index) => (
-                <ContentWritingCard content={content} index={index} />
+                <ContentWritingCard
+                  content={content}
+                  index={index}
+                  key={index}
+                />
               ))}
             </div>
           )}
@@ -327,14 +331,14 @@ const LifeStyle = () => {
           {selected === "automation" && (
             <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-10 2xl:gap-12">
               {automationTesting?.map((item, index) => {
-                return <LifeStyleCard data={item} index={index} />;
+                return <LifeStyleCard data={item} index={index} key={index} />;
               })}
             </div>
           )}
           {selected === "business" && (
             <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-10 2xl:gap-12">
               {businessAutomation.map((item, index) => {
-                return <LifeStyleCard data={item} index={index} />;
+                return <LifeStyleCard data={item} index={index} key={index} />;
               })}
             </div>
           )}

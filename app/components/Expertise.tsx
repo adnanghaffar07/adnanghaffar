@@ -411,7 +411,10 @@ const Expertise = () => {
                 <div className="flex gap-2 sm:gap-4">
                   {card.img.map((img, index) => {
                     return (
-                      <div className="flex justify-center items-center bg-white rounded-lg shadow-[0px_0px_12px_rgba(0,0,0,0.1)] w-[40px] md:w-[60px] h-[40px] md:h-[60px]">
+                      <div
+                        className="flex justify-center items-center bg-white rounded-lg shadow-[0px_0px_12px_rgba(0,0,0,0.1)] w-[40px] md:w-[60px] h-[40px] md:h-[60px]"
+                        key={index}
+                      >
                         <Image
                           alt={card.title}
                           src={img}
