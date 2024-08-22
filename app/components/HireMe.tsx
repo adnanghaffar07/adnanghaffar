@@ -24,7 +24,7 @@ const HireMe = () => {
         <div className="flex flex-col">
           <div>
             <h2 className="text-base sm:text-xl font-semibold text-[#282938]">
-              Lorem ipsum dolor sit, amet
+              Skilled, Reliable, Dedicated.
             </h2>
             <p className="mt-2 text-2xl sm:text-5xl font-bold leading-tight bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] w-fit">
               Why Hire Me?

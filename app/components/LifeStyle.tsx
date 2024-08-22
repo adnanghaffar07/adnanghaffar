@@ -1,7 +1,129 @@
+"use client";
+
 import Image from "next/image";
 import React, { useState } from "react";
+import ContentWritingCard from "./ContentWritingCard";
+import LifeStyleCard from "./LifeStyleCard";
 
-const contentWriting = [];
+const contentWriting = [
+  {
+    image: "/manual-testing.png",
+    categories: ["SQA", "Learning"],
+    title: "Why is Manual Testing not sufficient for Continuous Delivery?",
+    description:
+      "Software development professionals often use continuous delivery. The introduction of new app code is streamlined by automation. It starts the process by which a software developer changes the application, and it may be automatically uploaded to the code repository registry.",
+    releaseDate: "Sep 11, 2023",
+    shares: "1K shares",
+    link: "https://medium.com/@codeautomation/why-is-manual-testing-not-sufficient-for-continuous-delivery-23598522d741",
+  },
+  {
+    image: "/software-development.png",
+    categories: ["Software", "Learning"],
+    title: "Software Development Planning: Why It Is Important",
+    description:
+      "The process of creating software is extremely complicated. In today’s technological environments, work should frequently be distributed as soon as possible. Whether you design products or make software for clients worldwide, this is essential.",
+    releaseDate: "Sep 1, 2023",
+    shares: "1K shares",
+    link: "https://medium.com/@codeautomation/software-development-planning-why-it-is-important-ca99c23214bd",
+  },
+  {
+    image: "/css-grid.png",
+    categories: ["CSS", "Learning"],
+    title: "Mastering CSS Grid: A Comprehensive Guide",
+    description:
+      "CSS Grid is a game-changer, offering unparalleled control over web page layouts in a previously unimaginable way. Gone are the days of relying solely on floats, flexboxes, or positioning hacks to achieve complex designs.",
+    releaseDate: "Aug 8, 2023",
+    shares: "1K shares",
+    link: "https://medium.com/@codeautomation/mastering-css-grid-a-comprehensive-guide-6d13f2d42f75",
+  },
+  {
+    image: "/nodejs.png",
+    categories: ["Node", "Learning"],
+    title: "Introduction to Asynchronous Programming in Node.js",
+    description:
+      "The process of creating software is extremely complicated. In today’s technological environments, work should frequently be distributed as soon as possible. Whether you design products or make software for clients worldwide, this is essential.",
+    releaseDate: "Jul 11, 2023",
+    shares: "1K shares",
+    link: "https://medium.com/@codeautomation/introduction-to-asynchronous-programming-in-node-js-c266ee3870ed",
+  },
+];
+const automationTesting = [
+  {
+    image: "/vested finance.png",
+    title: "Vested Finance",
+    description:
+      "Vested Finance offers a seamless platform for international investors to access and invest in U.S. stocks.",
+  },
+  {
+    image: "/abacus-ai.png",
+    title: "Abacus.ai",
+    description:
+      "Abacus is a Leading International Professional Services Firm helping in outsourcing, consulting and providing technological education and training",
+  },
+  {
+    image: "/automation-bg.png",
+    title: "Go-grapevine",
+    description:
+      "Go-Grapevine is a platform for sharing reviews, recommendations, and experiences, connecting users with trusted insights.",
+  },
+  {
+    image: "/automation-bg.png",
+    title: "Gininow",
+    description:
+      "Gininow simplifies your business processes with automated solutions, enhancing efficiency, productivity, and customer satisfaction.",
+  },
+  {
+    image: "/automation-bg.png",
+    title: "Zeymo",
+    description:
+      "Zeymo provides innovative solutions for streamlined business processes, enhancing efficiency and boosting productivity across industries.",
+  },
+  {
+    image: "/automation-bg.png",
+    title: "Yarn",
+    description:
+      "Yarn is a package manager that simplifies managing and installing JavaScript libraries and dependencies efficiently.",
+  },
+];
+
+const businessAutomation = [
+  {
+    image: "/voice cold caller.png",
+    title: "AI Automation Voice Cold Caller",
+    description:
+      "AI Automation Voice Cold Caller streamlines cold calling, enhancing efficiency and outreach through automated voice interactions.",
+  },
+  {
+    image: "/zoho crm.png",
+    title: "Zoho CRM - Invoice Automation",
+    description:
+      "Zoho CRM automates invoicing, streamlining billing processes, reducing manual errors, and improving payment tracking efficiency.",
+  },
+  {
+    image: "/saleforce.png",
+    title: "Salesforce Automation",
+    description:
+      "Salesforce automation streamlines sales processes, automates tasks, enhances CRM efficiency, and boosts productivity and accuracy.",
+  },
+  {
+    image: "/lead generation.png",
+    title: "Lead Generation & Enrichment process",
+    description:
+      "Lead generation and enrichment involve identifying potential customers and enhancing their data for targeted marketing.",
+  },
+  {
+    image: "/linked automation.png",
+    title: "LinkedIn Automation",
+    description:
+      "LinkedIn automation streamlines networking, content sharing, and lead generation, boosting professional connections and business growth.",
+  },
+  {
+    image: "/indeed autoation.png",
+    title: "Indeed Automation",
+    description:
+      "Indeed Automation streamlines job posting and applicant tracking, saving time and enhancing recruitment efficiency for employers.",
+  },
+];
 
 const LifeStyle = () => {
   const [selected, setSelected] = useState("travelling");
@@ -11,7 +133,7 @@ const LifeStyle = () => {
   };
   return (
     <section className="max-w-[1412px] mx-auto">
-      <div className="flex flex-col px-5 py-8 md:py-24 w-full max-md:max-w-full items-center justify-center">
+      <div className="flex flex-col px-1 sm:px-5 py-8 md:py-24 w-full max-md:max-w-full items-center justify-center">
         <div className="flex flex-col items-start w-full max-md:max-w-full">
           <div className="flex flex-col justify-center max-w-full w-[768px]">
             <p className="self-start text-base sm:text-xl font-semibold text-center text-[#282938]">
@@ -195,78 +317,27 @@ const LifeStyle = () => {
           )}
 
           {selected === "content" && (
-            <div className="flex gap-10">
-              <div className="flex flex-col rounded-lg max-w-[615px] shadow-lg">
-                <div className="flex flex-col pb-5 w-full rounded-lg bg-slate-50">
-                  <div className="relative flex flex-col w-full text-xl text-white rounded-lg min-h-[420px]">
-                    <Image
-                      src="/manual-testing.png"
-                      alt="manual-testing"
-                      width={615}
-                      height={420}
-                      className="w-full h-full object-cover absolute inset-0"
-                    />
-                    <div className="relative flex flex-col items-end px-16 pt-8 pb-80 w-full bg-black bg-opacity-30">
-                      <div className="flex gap-2 mb-0">
-                        <div className="px-2.5 py-2 rounded-lg bg-white bg-opacity-20">
-                          SQA
-                        </div>
-                        <div className="px-2.5 py-2 rounded-lg bg-white bg-opacity-20">
-                          Learning
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex flex-col self-center mt-8 w-full max-w-[549px]">
-                    <div className="text-3xl font-semibold text-neutral-900">
-                      Why is Manual Testing not sufficient for Continuous
-                      Delivery?
-                    </div>
-                    <div className="flex flex-col items-start mt-6 text-lg text-gray-500 w-[519px]">
-                      <div className="flex items-center gap-3">
-                        <Image
-                          src="/profile-icon.png"
-                          width={40}
-                          height={40}
-                          alt="profile"
-                          className="w-10 rounded-full"
-                        />
-                        <div>Adnan Ghaffar</div>
-                        <div className="w-9 h-px bg-gray-500 bg-opacity-40" />
-                        <div>Sep 11, 2023</div>
-                        <div className="flex items-center gap-1.5">
-                          <Image
-                            src="/share-icon.svg"
-                            alt="share"
-                            width={15}
-                            height={16}
-                            className="w-[15px] h-4"
-                          />
-                          <div>1K shares</div>
-                        </div>
-                      </div>
-                      <div className="mt-5 text-xl leading-8 text-gray-500">
-                        Software development professionals often use continuous
-                        delivery. The introduction of new app code is
-                        streamlined by automation. It starts the process by
-                        which a software developer changes the application, and
-                        it may be automatically uploaded to the code repository
-                        registry.
-                      </div>
-                      <div className="flex flex-col items-center mt-5 text-2xl font-semibold leading-loose">
-                        <div className="bg-clip-text text-transparent bg-gradient-to-r from-[#5E3BEE] to-[#B416FF]">
-                          Read Blog
-                        </div>
-                        <div className="w-full h-px bg-gradient-to-r from-[#5E3BEE] to-[#B416FF]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-10 2xl:gap-12">
+              {contentWriting?.map((content, index) => (
+                <ContentWritingCard content={content} index={index} />
+              ))}
             </div>
           )}
-          {selected === "automation" && <div>automation</div>}
-          {selected === "business" && <div>business</div>}
+
+          {selected === "automation" && (
+            <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-10 2xl:gap-12">
+              {automationTesting?.map((item, index) => {
+                return <LifeStyleCard data={item} index={index} />;
+              })}
+            </div>
+          )}
+          {selected === "business" && (
+            <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-10 2xl:gap-12">
+              {businessAutomation.map((item, index) => {
+                return <LifeStyleCard data={item} index={index} />;
+              })}
+            </div>
+          )}
         </div>
 
         {selected === "travelling" && (
