@@ -307,7 +307,12 @@ const dataMapping: Record<
       description:
         "Target Process is an agile project management tool that helps teams visualize and manage workflows effectively.",
     },
-    // { img: ["/"], title: "", description: "" },
+    {
+      img: ["/clickup.png"],
+      title: "Click up",
+      description:
+        "ClickUp is a versatile project management tool that helps teams organize tasks, collaborate, and track progress efficiently.",
+    },
   ],
 };
 
