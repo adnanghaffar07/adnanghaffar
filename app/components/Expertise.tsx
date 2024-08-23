@@ -404,7 +404,8 @@ const Expertise = () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          className="custom-swiper-pagination pb-10 px-5 md:px-10"
+          className="px-5 md:px-10"
+          style={{ paddingBottom: "40px" }}
         >
           {dataMapping[selected].map((card, index: number) => {
             return (

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
+import "../globals.css";
 
 const achievementCards = [
   {
@@ -56,10 +57,10 @@ const Achievements = () => {
   }, []);
   return (
     <div
-      className="flex flex-col justify-center py-6 md:py-16 max-w-[1312px] mx-auto"
+      className="flex flex-col justify-center py-6 md:py-10 max-w-[1312px] mx-auto"
       id="achievements"
     >
-      <div className="flex flex-col w-fit  px-2 sm:px-5 md:px-10">
+      <div className="flex flex-col w-fit px-2 sm:px-5 md:px-10">
         <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
           My Overall Achievements
         </p>
@@ -78,7 +79,8 @@ const Achievements = () => {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
-          className="custom-swiper-pagination pb-10 px-5 md:px-10"
+          className="px-5 md:px-10"
+          style={{ paddingBottom: "40px" }}
         >
           {achievementCards?.map((card, index) => (
             <SwiperSlide
