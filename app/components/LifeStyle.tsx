@@ -344,13 +344,13 @@ const LifeStyle = () => {
           )}
         </div>
 
-        {selected === "travelling" && (
+        {/* {selected === "travelling" && (
           <button className="flex justify-center items-center w-[82px] sm:w-[113px] h-[34px] sm:h-[50px] mt-20 sm:text-lg font-medium leading-tight rounded-lg border border-indigo-600 border-solid bg-indigo-600 bg-opacity-0 max-md:mt-10 text-xs">
             <p className="self-stretch my-auto bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE]">
               View More
             </p>
           </button>
-        )}
+        )} */}
       </div>
     </section>
   );
