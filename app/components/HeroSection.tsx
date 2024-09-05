@@ -64,7 +64,7 @@ const HeroSection = () => {
             </button> */}
 
             <Link
-              href="https://calendly.com/adnanghaffar"
+              href="https://calendly.com/adnanghaffar007"
               target="_blank"
               rel="noopener noreferrer"
               className="relative items-center justify-center w-[164px] sm:w-[180px] lg:w-[225px] xl:w-[255px] h-[58px] sm:h-[63px] lg:h-[63px] xl:h-[73px] lg:text-xl xl:text-2xl font-medium rounded-lg p-[1px] bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] px-[1px] flex"

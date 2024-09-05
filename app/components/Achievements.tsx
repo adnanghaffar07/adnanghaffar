@@ -14,7 +14,7 @@ const achievementCards = [
   {
     title: "Product Development & Innovation",
     description:
-      "Led the creation of the AI Code  Generator, cutting client development  time by40%,and launched innovative,  user-friendly products.",
+      "Led the creation of the AI Code  Generator, cutting client development  time by 40%, and launched innovative,  user-friendly products.",
   },
   {
     title: "Market Expansion",
@@ -64,7 +64,7 @@ const Achievements = () => {
         <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
           My Overall Achievements
         </p>
-        <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-2 md:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+        <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-2 md:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight pb-2">
           Key Achievements
         </p>
       </div>

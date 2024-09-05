@@ -188,7 +188,7 @@ const ContactSection = () => {
                   </p>
                   <p className="mt-2 text-sm leading-4 text-zinc-900 text-opacity-70">
                     Full Stack &<br />
-                    Automatation
+                    Automation
                     <br />
                     developer
                   </p>
@@ -325,7 +325,7 @@ const ContactSection = () => {
                     </p>
                     <p className="mt-2 text-sm leading-4 text-zinc-900 text-opacity-70">
                       Full Stack &<br />
-                      Automatation
+                      Automation
                       <br />
                       developer
                     </p>
