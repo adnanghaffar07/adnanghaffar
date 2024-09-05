@@ -76,7 +76,11 @@ const Footer = () => {
           <div className="flex w-full bg-white bg-opacity-20 min-h-[1px] max-md:max-w-full" />
           <div className="flex flex-wrap gap-10 gap-y-6 justify-between items-center pt-6 md:pt-11 pb-6 md:pb-8">
             <p className="my-auto text-xs sm:text-base md:text-lg font-bold text-white">
-              Copyright @{new Date(Date.now()).getFullYear()} - by Adnan G.
+              <span className="font-normal">
+                {" "}
+                Copyright @{new Date(Date.now()).getFullYear()}
+              </span>{" "}
+              - by Adnan G.
             </p>
             <div className="flex flex-wrap gap-4 items-center my-auto">
               <Link

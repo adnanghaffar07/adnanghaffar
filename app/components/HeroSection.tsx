@@ -40,7 +40,14 @@ const HeroSection = () => {
           </div>
 
           <div className="flex gap-4 sm:gap-6 items-center self-start mt-8 ">
-            <button
+            <Link
+              href="https://www.upwork.com/freelancers/adnanghaffar"
+              target="_blank"
+              className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[156px] sm:w-[180px] lg:w-[180px] xl:w-[214px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300 hover:bg-[linear-gradient(274deg,#B416FF_44.65%,#5E3BEE_97.09%)]"
+            >
+              Upwork Top Rated
+            </Link>
+            {/* <button
               className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[156px] sm:w-[180px] lg:w-[180px] xl:w-[214px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300"
               onClick={(e) => handleScroll(e, "portfolio")}
             >
@@ -54,7 +61,7 @@ const HeroSection = () => {
                 height={24}
                 className="w-6 ml-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hidden md:block"
               />
-            </button>
+            </button> */}
 
             <Link
               href="https://calendly.com/adnanghaffar"
@@ -63,7 +70,7 @@ const HeroSection = () => {
               className="relative items-center justify-center w-[164px] sm:w-[180px] lg:w-[225px] xl:w-[255px] h-[58px] sm:h-[63px] lg:h-[63px] xl:h-[73px] lg:text-xl xl:text-2xl font-medium rounded-lg p-[1px] bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] px-[1px] flex"
             >
               <span className="w-full h-full bg-[#F5FCFF] hover:bg-[#CECCFB] rounded-[7px] flex items-center justify-center">
-                <span className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] text-base lg:text-[22px]">
+                <span className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] text-base lg:text-[22px] py-1">
                   Schedule Meeting
                 </span>
               </span>

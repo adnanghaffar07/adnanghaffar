@@ -48,19 +48,19 @@ const Header = () => {
 
         <ul className=" gap-8 text-xl text-[#1C1E53] max-md:max-w-full hidden xl:flex">
           <li className="text-[#5E3BEE]">
-            <a className="cursor-pointer">Home</a>
+            <a className="cursor-pointer font-medium">Home</a>
           </li>
           <li>
             <a
               onClick={(e) => handleScroll(e, "expertise")}
-              className="hover:text-[#5E3BEE] cursor-pointer"
+              className="hover:text-[#5E3BEE] cursor-pointer font-medium"
             >
               Tools & Expertise
             </a>
           </li>
           <li>
             <a
-              className="hover:text-[#5E3BEE] cursor-pointer"
+              className="hover:text-[#5E3BEE] cursor-pointer font-medium"
               onClick={(e) => handleScroll(e, "about")}
             >
               About me
@@ -68,7 +68,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              className="hover:text-[#5E3BEE] cursor-pointer"
+              className="hover:text-[#5E3BEE] cursor-pointer font-medium"
               onClick={(e) => handleScroll(e, "portfolio")}
             >
               Portfolio
@@ -76,7 +76,7 @@ const Header = () => {
           </li>
           <li>
             <a
-              className="hover:text-[#5E3BEE] cursor-pointer"
+              className="hover:text-[#5E3BEE] cursor-pointer font-medium"
               onClick={(e) => handleScroll(e, "achievements")}
             >
               Achievements
