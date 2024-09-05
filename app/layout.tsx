@@ -2,7 +2,11 @@ import type { Metadata } from "next";
 import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
-const lexendDeca = Lexend_Deca({ subsets: ["latin"] });
+const lexendDeca = Lexend_Deca({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "900"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Portfolio",
