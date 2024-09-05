@@ -63,11 +63,11 @@ body {
 }
 
 .swiper-button-next {
-  right: -1px;
+  right: -2px;
 }
 
 .swiper-button-prev {
-  left: -1px;
+  left: -8px;
 }
 .message {
   font-size: 16px;
@@ -89,10 +89,4 @@ body {
 
 .animate-scroll {
   animation: scroll 25s linear infinite;
-}
-
-/* Hide default Swiper navigation icons */
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  content: none; /* Remove default Swiper arrow icons */
 }

@@ -518,6 +518,8 @@ const Expertise = () => {
               position: "absolute",
               top: "25%",
               right: "0px",
+              width: "40px",
+              height: "40px",
             }}
           ></div>
           <div
@@ -530,10 +532,42 @@ const Expertise = () => {
               position: "absolute",
               top: "25%",
               right: "0px",
+              width: "40px",
+              height: "40px",
             }}
           ></div>
         </Swiper>
       </div>
+      {/* Add the CSS to hide default Swiper icons */}
+      <style jsx global>{`
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+          content: none;
+        }
+        .custom-swiper-pagination .swiper-pagination {
+          position: absolute !important;
+          bottom: 0px !important;
+          z-index: 99 !important;
+          left: 50% !important;
+          transform: translateX(-50%) !important;
+        }
+
+        .swiper-pagination-bullet {
+          background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+        }
+
+        .swiper-pagination-bullet-active {
+          background: linear-gradient(to right, #b416ff, #5e3bee);
+        }
+
+        .swiper-button-next {
+          right: -2px;
+        }
+
+        .swiper-button-prev {
+          left: -8px;
+        }
+      `}</style>
     </div>
   );
 };
