@@ -15,20 +15,22 @@ type ToolType =
   | "Code Hosting Platforms"
   | "CI/CD Tools"
   | "Unit & Automation Testing Framework"
-  | "API &WebServices Testing"
-  | "Management Tools";
+  | "API & Web Services Testing"
+  | "Management Tools"
+  | "Expertise";
 
 const tools: ToolType[] = [
+  "Expertise",
   "AI Business Automation",
   "Automated Testing & Reporting",
-  "Programming Languages",
-  "Database",
   "Data Transformation",
-  "MS Office",
-  "Code Hosting Platforms",
+  "Database",
+  "API & Web Services Testing",
   "CI/CD Tools",
+  "MS Office",
+  "Programming Languages",
+  "Code Hosting Platforms",
   "Unit & Automation Testing Framework",
-  "API &WebServices Testing",
   "Management Tools",
 ];
 
@@ -36,11 +38,68 @@ const dataMapping: Record<
   ToolType,
   { img: string[]; title: string; description: string }[]
 > = {
+  Expertise: [
+    {
+      img: ["/software development.png"],
+      title: "Software Development",
+      description:
+        "Software development involves designing, coding, testing, and maintaining applications to solve problems and meet needs.",
+    },
+    {
+      img: ["/qa testing and automation.png"],
+      title: "QA Testing & Automation",
+      description:
+        "QA testing ensures software quality through manual and automated tests, detecting bugs, and improving reliability.",
+    },
+    {
+      img: ["/custom cms development.png"],
+      title: "Custom CMS Development",
+      description:
+        "Custom CMS development delivers tailored systems, offering flexibility, control, and unique features for businesses.",
+    },
+    {
+      img: ["/mobile app development.png"],
+      title: "Mobile App Development",
+      description:
+        "Mobile app development creates tailored applications for smartphones, enhancing user experience and engagement.",
+    },
+    {
+      img: ["/UI UX design.png"],
+      title: "UI/UX Design",
+      description:
+        "UI/UX design focuses on creating intuitive, visually appealing interfaces and experiences for optimal user satisfaction.",
+    },
+    {
+      img: ["/custom website.png"],
+      title: "Custom Website",
+      description:
+        "A custom website is tailored to specific needs, offering unique design, functionality, and user experience.",
+    },
+  ],
   "AI Business Automation": [
     {
-      img: ["/python.svg"],
-      title: "Business Automation",
-      description: "AI Business Automation",
+      img: ["/(RPA) - UiPath.png"],
+      title: "(RPA) - UiPath",
+      description:
+        "UiPath is a leading RPA platform that automates repetitive business tasks, enhancing efficiency and accuracy.",
+    },
+    {
+      img: ["/(CRM) - Salesforce.png"],
+      title: "(CRM) - Salesforce",
+      description:
+        "Salesforce CRM is a cloud-based platform that automates sales, marketing, and customer service processes.",
+    },
+    {
+      img: ["/Automation Anywhere.png"],
+      title: "Automation Anywhere",
+      description:
+        "Automation Anywhere is a leading RPA platform that automates business processes, enhancing efficiency & reducing manual tasks.",
+    },
+    {
+      img: ["/IBM Watson.png"],
+      title: "IBM Watson",
+      description:
+        "It is an AI platform offering cognitive services for data analysis, natural language processing, and business automation.",
     },
   ],
   "Automated Testing & Reporting": [
@@ -52,19 +111,19 @@ const dataMapping: Record<
     },
     {
       img: ["/playwright.svg"],
-      title: "Playwright, Cypress",
+      title: "Playwright | Cypress",
       description:
         "Playwright and Cypress are popular end-to-end testing frameworks for modern web applications, offering automation and reliability.",
     },
     {
       img: ["/framework.svg"],
-      title: "Framework.",
+      title: "Framework",
       description:
         "Framework is a modular laptop that emphasizes repairability, customization, and sustainability, allowing users to upgrade easily.",
     },
     {
       img: ["/robot.svg"],
-      title: "Robot Framework.",
+      title: "Robot Framework",
       description:
         "It is an open-source automation framework for acceptance testing, test-driven development, and robotic process automation.",
     },
@@ -261,7 +320,7 @@ const dataMapping: Record<
     },
   ],
 
-  "API &WebServices Testing": [
+  "API & Web Services Testing": [
     {
       img: ["/soap ui.png"],
       title: "SoapUI",
@@ -322,9 +381,7 @@ const Expertise = () => {
     height: "286px",
   });
 
-  const [selected, setSelected] = useState<ToolType>(
-    "Automated Testing & Reporting"
-  );
+  const [selected, setSelected] = useState<ToolType>("Expertise");
 
   const handleClick = (tool: ToolType) => {
     setSelected(tool);
@@ -358,7 +415,7 @@ const Expertise = () => {
           <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
             Skills I Gain
           </p>
-          <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-2 md:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+          <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-2 md:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight pb-2">
             My Tools & Expertise
           </p>
         </div>
@@ -366,25 +423,23 @@ const Expertise = () => {
         <div className="flex flex-wrap gap-3 md:gap-5 items-center mt-4 md:mt-8 w-full text-lg font-medium leading-tight max-md:max-w-full">
           {tools.map((tool, index) => (
             <button
-              className={`rounded-lg p-[1px] w-fit bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] ${
-                selected === tool
-                  ? "bg-gradient-to-r from-[#B416FF] to-[#5E3BEE]"
-                  : "bg-white border-1 border-transparent"
-              } hover:bg-gradient-to-r from-[#B416FF] to-[#5E3BEE]`}
+              className={`rounded-lg p-[1.5px] w-fit bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] ${
+                selected === tool ? "" : "bg-white border-1 border-transparent"
+              } hover:bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] transition-all duration-300`}
               key={index}
               onClick={() => handleClick(tool)}
             >
               <p
-                className={`px-[10px] py-1.5 md:py-[13px] rounded-[7px] ${
+                className={`px-[10px] py-1.5 md:py-[13px] rounded-[7px] transition-all duration-300 ${
                   selected === tool
                     ? "bg-transparent text-white"
-                    : "bg-white group-hover:bg-transparent"
-                } transition-all duration-300`}
+                    : "bg-white hover:bg-transparent"
+                } group`}
               >
                 <span
-                  className={`text-xs md:text-lg bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] group-hover:text-white ${
+                  className={`text-xs md:text-lg bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] transition-all duration-300 ${
                     selected === tool ? "text-white" : ""
-                  }`}
+                  } group-hover:text-white`}
                 >
                   {tool}
                 </span>
@@ -394,7 +449,7 @@ const Expertise = () => {
         </div>
       </div>
 
-      <div className="flex gap-6 justify-center items-start mt-6 lg:mt-16 md:mt-10 overflow-x-hidden w-full xl:w-[1280px] px-2 sm:px-5 md:px-10">
+      <div className="flex gap-6 justify-center items-start mt-6 lg:mt-16 md:mt-10 overflow-x-hidden w-full xl:w-[1280px] px-36 sm:px-5 md:px-10">
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView="auto"
@@ -410,7 +465,7 @@ const Expertise = () => {
           {dataMapping[selected].map((card, index: number) => {
             return (
               <SwiperSlide
-                className="flex flex-col px-6 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] border-b-indigo-600 h-[215px] md:h-[286px] w-[250px] md:w-[304px] max-md:px-5"
+                className="flex flex-col ps-6 pe-2 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] hover:border-b-indigo-600 h-[215px] md:h-[286px] w-[250px] md:w-[304px] max-md:px-5"
                 key={index}
                 style={slideStyle}
               >
@@ -451,8 +506,32 @@ const Expertise = () => {
               zIndex: 50,
             }}
           ></div>
-          <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div>
+          {/* <div className="swiper-button-next"></div>
+          <div className="swiper-button-prev"></div> */}
+          <div
+            className="swiper-button-next bg-[#5E3BEE] rounded-full w-10 h-10 md:w-12 md:h-12 flex justify-center items-center shadow-lg text-white me-1"
+            style={{
+              backgroundImage: `url("/next arrow slider.svg")`,
+              backgroundSize: "50%",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              position: "absolute",
+              top: "25%",
+              right: "0px",
+            }}
+          ></div>
+          <div
+            className="swiper-button-prev bg-[#5E3BEE] rounded-full w-10 h-10 md:w-12 md:h-12 flex justify-center items-center shadow-lg text-white ms-2"
+            style={{
+              backgroundImage: `url("/previous slider arrow.svg")`,
+              backgroundSize: "50%",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              position: "absolute",
+              top: "25%",
+              right: "0px",
+            }}
+          ></div>
         </Swiper>
       </div>
     </div>
