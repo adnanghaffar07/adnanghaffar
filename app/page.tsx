@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
 import LifeStyle from "./components/LifeStyle";
 import Expertise from "./components/Expertise";
+import { ToolLogosSection } from "./components/ToolLogosSection";
 
 export default function Home() {
   // const handleScroll = (e: any, targetId: any) => {
@@ -26,6 +27,7 @@ export default function Home() {
     <>
       <Header />
       <HeroSection />
+      <ToolLogosSection />
       <Expertise />
       <AboutMe />
       <HireMe />
