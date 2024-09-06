@@ -65,10 +65,7 @@ const Testimonials = () => {
     };
   }, []);
   return (
-    <div
-      className="flex flex-col justify-center py-6 md:py-10 max-w-[1312px] mx-auto"
-      id="achievements"
-    >
+    <div className="flex flex-col justify-center py-6 md:py-10 max-w-[1312px] mx-auto">
       <div className="flex flex-col w-fit px-2 sm:px-5 md:px-10">
         <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
           My Google Reviews
