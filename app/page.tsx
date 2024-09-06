@@ -13,16 +13,10 @@ import ContactSection from "./components/ContactSection";
 import LifeStyle from "./components/LifeStyle";
 import Expertise from "./components/Expertise";
 import { ToolLogosSection } from "./components/ToolLogosSection";
+import RecentProjects from "./components/RecentProjects";
+import Testimonials from "./components/Testimonials";
 
 export default function Home() {
-  // const handleScroll = (e: any, targetId: any) => {
-  //   e.preventDefault();
-  //   const element = document.getElementById(targetId);
-  //   if (element) {
-  //     element.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // };
-
   return (
     <>
       <Header />
@@ -31,8 +25,10 @@ export default function Home() {
       <Expertise />
       <AboutMe />
       <HireMe />
+      <RecentProjects />
       <LifeStyle />
       <Services />
+      <Testimonials />
       <Achievements />
       <ContactSection />
       <Footer />
