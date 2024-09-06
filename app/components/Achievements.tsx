@@ -84,7 +84,7 @@ const Achievements = () => {
         >
           {achievementCards?.map((card, index) => (
             <SwiperSlide
-              className="flex flex-col px-6 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] border-b-indigo-600 h-[265px] md:h-[326px] w-[250px] md:w-[304px] max-md:px-5"
+              className="flex flex-col px-6 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] hover:border-b-indigo-600 h-[265px] md:h-[326px] w-[250px] md:w-[304px] max-md:px-5"
               key={index}
               style={achievementSlideStyle}
             >
@@ -103,9 +103,47 @@ const Achievements = () => {
               </div>
             </SwiperSlide>
           ))}
-          <div className="swiper-pagination"></div>
+          {/* <div className="swiper-pagination"></div>
           <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div>
+          <div className="swiper-button-prev"></div> */}
+          <div
+            className="swiper-pagination"
+            style={{
+              position: "absolute",
+              bottom: "-4px",
+              zIndex: 50,
+            }}
+          ></div>
+          {/* <div className="swiper-button-next"></div>
+          <div className="swiper-button-prev"></div> */}
+          <div
+            className="swiper-button-next bg-[#5E3BEE] rounded-full w-10 h-10 md:w-12 md:h-12 flex justify-center items-center shadow-lg text-white me-1"
+            style={{
+              backgroundImage: `url("/next arrow slider.svg")`,
+              backgroundSize: "50%",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              position: "absolute",
+              top: "25%",
+              right: "0px",
+              width: "40px",
+              height: "40px",
+            }}
+          ></div>
+          <div
+            className="swiper-button-prev bg-[#5E3BEE] rounded-full w-10 h-10 md:w-12 md:h-12 flex justify-center items-center shadow-lg text-white ms-2"
+            style={{
+              backgroundImage: `url("/previous slider arrow.svg")`,
+              backgroundSize: "50%",
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              position: "absolute",
+              top: "25%",
+              right: "0px",
+              width: "40px",
+              height: "40px",
+            }}
+          ></div>
         </Swiper>
       </div>
     </div>

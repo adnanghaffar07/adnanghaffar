@@ -43,25 +43,10 @@ const HeroSection = () => {
             <Link
               href="https://www.upwork.com/freelancers/adnanghaffar"
               target="_blank"
-              className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[156px] sm:w-[180px] lg:w-[180px] xl:w-[214px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300 hover:bg-[linear-gradient(274deg,#B416FF_44.65%,#5E3BEE_97.09%)]"
+              className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[190px] lg:w-[200px] xl:w-[255px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300 hover:bg-[linear-gradient(274deg,#B416FF_44.65%,#5E3BEE_97.09%)]"
             >
               Upwork Top Rated
             </Link>
-            {/* <button
-              className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[156px] sm:w-[180px] lg:w-[180px] xl:w-[214px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300"
-              onClick={(e) => handleScroll(e, "portfolio")}
-            >
-              <span className="group-hover:-translate-x-1  md:translate-x-4 transform transition-transform duration-300">
-                View Portfolio
-              </span>
-              <Image
-                src="/right arrow.svg"
-                alt="arrow"
-                width={24}
-                height={24}
-                className="w-6 ml-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 hidden md:block"
-              />
-            </button> */}
 
             <Link
               href="https://calendly.com/adnanghaffar007"
@@ -129,6 +114,7 @@ const HeroSection = () => {
             alt="Adnan Ghaffar"
             width={578}
             height={514}
+            priority={true}
             className="w-full sm:w-[578px] lg:w-[410px] xl:w-[520px] 2xl:w-[578px] px-4 sm:px-0"
           />
 

@@ -127,9 +127,11 @@ const businessAutomation = [
 
 const LifeStyle = () => {
   const [selected, setSelected] = useState("travelling");
+  const [showMoreContent, setShowMoreContent] = useState(false);
 
   const handleClick = (buttonId: string) => {
     setSelected(buttonId);
+    setShowMoreContent(false);
   };
   return (
     <section className="max-w-[1412px] mx-auto">
@@ -140,7 +142,7 @@ const LifeStyle = () => {
               Things I Love To Do
             </p>
             <div className="flex flex-col mt-2 md:mt-4 w-full text-5xl font-bold leading-tight max-md:max-w-full max-md:text-4xl">
-              <p className="text-2xl sm:text-4xl md:text-5xl w-fit bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE]">
+              <p className="text-2xl sm:text-4xl md:text-5xl w-fit bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] pb-1">
                 My Lifestyle
               </p>
             </div>
@@ -248,20 +250,22 @@ const LifeStyle = () => {
                     </div>
                   </div>
 
-                  <div className="max-w-[616px] h-auto overflow-hidden relative group rounded-lg">
-                    <Image
-                      src="/lifestyle-3.png"
-                      alt="Lifestyle"
-                      width={616}
-                      height={818}
-                      className="object-cover w-full h-full transform scale-110 transition-transform duration-300 group-hover:scale-100 group-hover:brightness-50"
-                    />
-                    <div className="absolute bottom-0 h-10 lg:h-[70px] xl:h-[116px] w-full flex items-center pl-4 bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
-                      <span className="text-white text-sm lg:text-xl xl:text-[32px] font-semibold pointer-events-auto">
-                        Trip to - Australia
-                      </span>
+                  {showMoreContent && (
+                    <div className="max-w-[616px] h-auto overflow-hidden relative group rounded-lg">
+                      <Image
+                        src="/lifestyle-3.png"
+                        alt="Lifestyle"
+                        width={616}
+                        height={704}
+                        className="object-cover w-full h-full transform scale-110 transition-transform duration-300 group-hover:scale-100 group-hover:brightness-50"
+                      />
+                      <div className="absolute bottom-0 h-10 lg:h-[70px] xl:h-[116px] w-full flex items-center pl-4 bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+                        <span className="text-white text-sm lg:text-xl xl:text-[32px] font-semibold pointer-events-auto">
+                          Trip to - Australia
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
 
@@ -287,7 +291,7 @@ const LifeStyle = () => {
                       alt="Lifestyle"
                       src="/lifestyle-5.png"
                       width={616}
-                      height={917}
+                      height={803}
                       className="object-cover w-full h-full transform scale-110 transition-transform duration-300 group-hover:scale-100 group-hover:brightness-50"
                     />
                     <div className="absolute bottom-0 h-10 lg:h-[70px] xl:h-[116px] w-full flex items-center pl-4 bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
@@ -297,20 +301,22 @@ const LifeStyle = () => {
                     </div>
                   </div>
 
-                  <div className="max-w-[616px] h-auto overflow-hidden relative group rounded-lg">
-                    <Image
-                      alt="Lifestyle"
-                      src="/lifestyle-6.png"
-                      width={616}
-                      height={702}
-                      className="object-cover w-full h-full transform scale-110 transition-transform duration-300 group-hover:scale-100 group-hover:brightness-50"
-                    />
-                    <div className="absolute bottom-0 h-10 lg:h-[70px] xl:h-[116px] w-full flex items-center pl-4 bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
-                      <span className="text-white text-sm lg:text-xl xl:text-[32px] font-semibold pointer-events-auto">
-                        Trip to - Switzerland
-                      </span>
+                  {showMoreContent && (
+                    <div className="max-w-[616px] h-auto overflow-hidden relative group rounded-lg">
+                      <Image
+                        alt="Lifestyle"
+                        src="/lifestyle-6.png"
+                        width={616}
+                        height={702}
+                        className="object-cover w-full h-full transform scale-110 transition-transform duration-300 group-hover:scale-100 group-hover:brightness-50"
+                      />
+                      <div className="absolute bottom-0 h-10 lg:h-[70px] xl:h-[116px] w-full flex items-center pl-4 bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 pointer-events-none">
+                        <span className="text-white text-sm lg:text-xl xl:text-[32px] font-semibold pointer-events-auto">
+                          Trip to - Switzerland
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -344,13 +350,18 @@ const LifeStyle = () => {
           )}
         </div>
 
-        {/* {selected === "travelling" && (
-          <button className="flex justify-center items-center w-[82px] sm:w-[113px] h-[34px] sm:h-[50px] mt-20 sm:text-lg font-medium leading-tight rounded-lg border border-indigo-600 border-solid bg-indigo-600 bg-opacity-0 max-md:mt-10 text-xs">
-            <p className="self-stretch my-auto bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE]">
-              View More
-            </p>
+        {selected === "travelling" && !showMoreContent && (
+          <button
+            className="items-center justify-center w-[122px] h-[50px] text-lg font-medium rounded-lg p-[1.5px] bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-8 md:mt-16"
+            onClick={() => setShowMoreContent(true)}
+          >
+            <span className="w-full h-full bg-white rounded-[7px] flex items-center justify-center hover:bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] group">
+              <span className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] group-hover:text-white">
+                Show More
+              </span>
+            </span>
           </button>
-        )} */}
+        )}
       </div>
     </section>
   );

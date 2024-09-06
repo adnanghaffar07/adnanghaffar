@@ -133,6 +133,12 @@ const dataMapping: Record<
       description:
         "Appium is an open-source tool for automating mobile applications on various platforms like iOS and Android.",
     },
+    {
+      img: ["/cucumber.png"],
+      title: "Cucumber, Gherkin, Capybara",
+      description:
+        "These tools for Behavior-Driven Development, testing automation, and web interactions.",
+    },
   ],
   "Programming Languages": [
     {
@@ -410,7 +416,7 @@ const Expertise = () => {
       className="flex flex-col justify-center items-center py-6 md:py-16 max-w-[1312px] mx-auto"
       id="expertise"
     >
-      <div className="flex flex-col px-2 sm:px-5 md:px-10">
+      <div className="flex flex-col px-2 sm:px-5 2xl:px-0">
         <div className="flex flex-col justify-center w-fit">
           <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
             Skills I Gain
@@ -449,7 +455,7 @@ const Expertise = () => {
         </div>
       </div>
 
-      <div className="flex gap-6 justify-center items-start mt-6 lg:mt-16 md:mt-10 overflow-x-hidden w-full xl:w-[1280px] px-36 sm:px-5 md:px-10">
+      <div className="flex gap-6 justify-center items-start mt-6 lg:mt-16 md:mt-10 overflow-x-hidden w-full xl:w-[1280px] px-3 sm:px-5 2xl:px-0">
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView="auto"
