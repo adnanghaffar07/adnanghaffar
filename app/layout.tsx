@@ -9,8 +9,7 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Adnan Ghaffar's Portfolio | Professional App & Web Developer | Development & Testing Services Portfolio",
+  title: "Adnan Ghaffar | Full Stack & Automation Developer",
   description:
     "Experienced app and web developer offering professional development and testing services. Explore my portfolio for high-quality solutions tailored to your needs",
 };
