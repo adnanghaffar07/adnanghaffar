@@ -5,42 +5,9 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import "../globals.css";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
-const achievementCards = [
-  {
-    name: "Robert Fox",
-    date: "2024-08-06",
-    image: "/Robert Fox.png",
-    rating: 5,
-    description:
-      "I've been working at CodeAutomation.ai for a few months and had a positive experience. The company culture is collaborative...",
-  },
-  {
-    name: "Esther Howard",
-    date: "2024-08-06",
-    image: "/Esther Howard.png",
-    rating: 5,
-    description:
-      "It was great experience working with him, Best web developer in the whole city and Adnan was very professional.",
-  },
-  {
-    name: "Jenny Wilson",
-    date: "2024-08-06",
-    image: "/Jenny Wilson.png",
-    rating: 5,
-    description:
-      "I've been working at CodeAutomation.ai for a few months and had a positive experience. The company culture is collaborative...",
-  },
-  {
-    name: "Bessie Cooper",
-    date: "2024-08-06",
-    image: "/Bessie Cooper.png",
-    rating: 5,
-    description:
-      "It was great experience working with him, Best web developer in the whole city and Adnan was very professional.",
-  },
-];
-const Testimonials = () => {
+const Testimonials = ({ data }: { data: any }) => {
   const [achievementSlideStyle, setAchievementSlideStyle] = useState({
     width: "304px",
     height: "326px",
@@ -50,7 +17,6 @@ const Testimonials = () => {
     const updateAchievementSlideStyle = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 768) {
-        // setAchievementSlideStyle({ width: "250px", height: "265px" });
         setAchievementSlideStyle({ width: "304px", height: "326px" });
       } else {
         setAchievementSlideStyle({ width: "304px", height: "326px" });
@@ -64,14 +30,15 @@ const Testimonials = () => {
       window.removeEventListener("resize", updateAchievementSlideStyle);
     };
   }, []);
+
   return (
     <div className="flex flex-col justify-center py-6 md:py-10 max-w-[1312px] mx-auto">
       <div className="flex flex-col w-fit px-2 sm:px-5 md:px-10">
         <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
-          My Google Reviews
+          {data?.subTitle}
         </p>
         <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-2 md:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight pb-2">
-          Testimonials
+          {data?.title}
         </p>
       </div>
 
@@ -88,35 +55,39 @@ const Testimonials = () => {
           className="px-5 md:px-10"
           style={{ paddingBottom: "80px" }}
         >
-          {achievementCards?.map((card, index) => (
+          {data?.testimonialArray?.map((card: any, index: number) => (
             <SwiperSlide key={index} style={achievementSlideStyle}>
               <div className="flex flex-col p-6 bg-white rounded-lg border border-black border-opacity-10 w-[362px] h-[360px]">
                 <div className="flex justify-between w-full gap-5">
                   <div className="flex items-center gap-5">
-                    <Image
-                      width={56}
-                      height={56}
-                      alt={card.name}
-                      src={card.image}
-                      className="object-contain w-14 rounded-[31px]"
-                    />
+                    {card?.personIcon && (
+                      <Image
+                        width={56}
+                        height={56}
+                        alt={card.personIcon?.alt}
+                        src={urlFor(card.personIcon).url()}
+                        className="object-contain w-14 rounded-[31px]"
+                      />
+                    )}
                     <div>
                       <p className="text-lg font-semibold text-neutral-700">
                         {card.name}
                       </p>
-                      <p className="text-lg text-black">{card.date}</p>
+                      <p className="text-lg text-black">{card.publishdate}</p>
                     </div>
                   </div>
-                  <Image
-                    width={32}
-                    height={32}
-                    alt="google-icon"
-                    src="/google-icon.png"
-                    className="object-contain w-8"
-                  />
+                  {card?.platformIcon && (
+                    <Image
+                      width={32}
+                      height={32}
+                      alt={card.platformIcon.alt}
+                      src={urlFor(card.platformIcon).url()}
+                      className="object-contain w-8"
+                    />
+                  )}
                 </div>
                 <div className="flex gap-1.5 items-center mt-4">
-                  {[...Array(5)].map((_, index) => (
+                  {[...Array(card.rating)].map((_, index) => (
                     <Image
                       key={index}
                       alt="rating"
@@ -130,9 +101,18 @@ const Testimonials = () => {
                 <p className="mt-4 text-xl font-medium text-neutral-700 leading-8 h-[160px]">
                   {card.description}
                 </p>
-                <p className="text-lg font-semibold text-fuchsia-600">
-                  Read more
-                </p>
+                {card.link ? (
+                  <a
+                    href={`https://${card.link}`}
+                    className="text-lg font-semibold text-fuchsia-600"
+                  >
+                    {card.buttonText}
+                  </a>
+                ) : (
+                  <p className="text-lg font-semibold text-fuchsia-600">
+                    {card.buttonText}
+                  </p>
+                )}
               </div>
             </SwiperSlide>
           ))}

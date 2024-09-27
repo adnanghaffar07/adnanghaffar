@@ -1,11 +1,10 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-
 import { useFormik } from "formik";
-import * as Yup from "yup"; // Import Yup for validation
+import * as Yup from "yup";
+import { urlFor } from "@/sanity/lib/image";
 
 const contactSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -25,7 +24,7 @@ const initialValues = {
   message: "",
 };
 
-const ContactSection = () => {
+const ContactSection = ({ data }: { data: any }) => {
   const [message, setMessage] = useState("");
   const [uploading, setUploading] = useState(false);
   const [bgColor, setBgColor] = useState("bg-[#5E3BEE]");
@@ -41,7 +40,7 @@ const ContactSection = () => {
     resetForm,
   } = useFormik({
     initialValues: initialValues,
-    validationSchema: contactSchema, // Apply the validation schema
+    validationSchema: contactSchema,
     onSubmit: (values, action) => {
       // action.resetForm();
     },
@@ -55,12 +54,9 @@ const ContactSection = () => {
     if (!values.name.length || !values.email.length || !values.name.length) {
       return;
     }
-
     if (errors.name || errors.email || errors.message) {
       return;
     }
-
-    // Revalidate the email before submitting
     if (!Yup.string().email().isValidSync(values.email)) {
       setBgColor("bg-red-500");
       setMessage("Please enter a valid email address.");
@@ -112,85 +108,51 @@ const ContactSection = () => {
             <div className="flex flex-col items-start min-w-[240px] max-w-[360px]">
               <div className="flex flex-col w-full">
                 <h2 className="md:text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] text-2xl sm::text-4xl pb-1">
-                  Let’s work together
+                  {data.heading}
                 </h2>
                 <p className="mt-3 md:mt-6 text-base md:text-xl leading-6 md:leading-8 text-gray-800">
-                  We are committed to processing the information in order to
-                  contact you and talk about your project.
+                  {data.subheading}
                 </p>
               </div>
               <div className="lg:flex gap-4 items-center mt-8 w-44 max-w-full hidden">
-                <Link
-                  href="https://www.facebook.com/AdnanGhaffarCh"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    src="/facebook.svg"
-                    alt="facebook"
-                    width={32}
-                    height={32}
-                    className="object-contain shrink-0 self-stretch my-auto w-8 rounded-md aspect-square"
-                  />
-                </Link>
-                <Link
-                  href="https://www.instagram.com/itsadnanghaffar/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    alt="instagram"
-                    width={32}
-                    height={32}
-                    src="/instagram-form.svg"
-                    className="object-contain shrink-0 self-stretch my-auto w-8 rounded-md aspect-square"
-                  />
-                </Link>
-                <Link
-                  href="https://twitter.com/adnanghaffar007"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    alt="twitter"
-                    width={32}
-                    height={32}
-                    src="/twitter-form.svg"
-                    className="object-contain shrink-0 self-stretch my-auto w-8 rounded-md aspect-square"
-                  />
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/adnanghaffar007"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Image
-                    alt="linkedIn"
-                    width={32}
-                    height={32}
-                    src="/linkedIn-form.svg"
-                    className="object-contain shrink-0 self-stretch my-auto w-8 rounded-md aspect-square"
-                  />
-                </Link>
+                {data?.iconsArray.map((icon: any, index: number) => {
+                  return (
+                    <Link
+                      href={icon.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      key={index}
+                    >
+                      {icon?.icon && (
+                        <Image
+                          src={urlFor(icon.icon).url()}
+                          alt={icon.icon.alt}
+                          width={32}
+                          height={32}
+                          className="object-contain shrink-0 self-stretch my-auto w-8 rounded-md aspect-square"
+                        />
+                      )}
+                    </Link>
+                  );
+                })}
               </div>
 
               <div className="lg:flex gap-4 items-center pr-4 mt-8 uppercase tracking-[2px] hidden">
-                <Image
-                  alt="Adnan Profile"
-                  src="/contact-form.png"
-                  width={80}
-                  height={80}
-                  className="object-contain shrink-0 self-stretch my-auto w-20 rounded-lg aspect-square"
-                />
+                {data?.image && (
+                  <Image
+                    alt={data.image.alt}
+                    src={urlFor(data.image).url()}
+                    width={80}
+                    height={80}
+                    className="object-contain shrink-0 self-stretch my-auto w-20 rounded-lg aspect-square"
+                  />
+                )}
                 <div className="flex flex-col self-stretch my-auto">
                   <p className="text-xl leading-none text-gray-800">
-                    Adnan Ghaffar
+                    {data.name}
                   </p>
-                  <p className="mt-2 text-sm leading-4 text-zinc-900 text-opacity-70">
-                    Full Stack &<br />
-                    Automation
-                    <br />
-                    developer
+                  <p className="mt-2 text-sm leading-4 text-zinc-900 text-opacity-70 max-w-[150px]">
+                    {data.designation}
                   </p>
                 </div>
               </div>
@@ -257,77 +219,44 @@ const ContactSection = () => {
               </div>
               <div>
                 <div className="flex gap-4 items-center mt-6 md:mt-8 w-44 max-w-full lg:hidden">
-                  <Link
-                    href="https://www.facebook.com/AdnanGhaffarCh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      src="/facebook.svg"
-                      alt="facebook"
-                      width={32}
-                      height={32}
-                      className="object-contain shrink-0 self-stretch my-auto w-5 md:w-8 rounded-md aspect-square"
-                    />
-                  </Link>
-                  <Link
-                    href="https://www.instagram.com/itsadnanghaffar/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      alt="instagram"
-                      width={32}
-                      height={32}
-                      src="/instagram-form.svg"
-                      className="object-contain shrink-0 self-stretch my-auto w-5 md:w-8 rounded-md aspect-square"
-                    />
-                  </Link>
-                  <Link
-                    href="https://twitter.com/adnanghaffar007"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      alt="twitter"
-                      width={32}
-                      height={32}
-                      src="/twitter-form.svg"
-                      className="object-contain shrink-0 self-stretch my-auto w-5 md:w-8 rounded-md aspect-square"
-                    />
-                  </Link>
-                  <Link
-                    href="https://www.linkedin.com/in/adnanghaffar007"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Image
-                      alt="linkedIn"
-                      width={32}
-                      height={32}
-                      src="/linkedIn-form.svg"
-                      className="object-contain shrink-0 self-stretch my-auto w-5 md:w-8 rounded-md aspect-square"
-                    />
-                  </Link>
+                  {data?.iconsArray.map((icon: any, index: number) => {
+                    return (
+                      <Link
+                        href={icon.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={index}
+                      >
+                        {icon.icon && (
+                          <Image
+                            alt={icon.icon.alt}
+                            width={32}
+                            height={32}
+                            src={urlFor(icon.icon).url()}
+                            className="object-contain shrink-0 self-stretch my-auto w-5 md:w-8 rounded-md aspect-square"
+                          />
+                        )}
+                      </Link>
+                    );
+                  })}
                 </div>
 
                 <div className="flex gap-4 items-center pr-4 mt-6 md:mt-8 uppercase tracking-[2px] lg:hidden">
-                  <Image
-                    alt="Adnan Profile"
-                    src="/contact-form.png"
-                    width={80}
-                    height={80}
-                    className="object-contain shrink-0 self-stretch my-auto w-20 rounded-lg aspect-square"
-                  />
+                  {data.image && (
+                    <Image
+                      alt={data.image.alt}
+                      src={urlFor(data.image).url()}
+                      width={80}
+                      height={80}
+                      className="object-contain shrink-0 self-stretch my-auto w-20 rounded-lg aspect-square"
+                    />
+                  )}
                   <div className="flex flex-col self-stretch my-auto">
                     <p className="text-xl leading-none text-gray-800">
-                      Adnan Ghaffar
+                      {data.name}
                     </p>
-                    <p className="mt-2 text-sm leading-4 text-zinc-900 text-opacity-70">
-                      Full Stack &<br />
-                      Automation
-                      <br />
-                      developer
+                    <p className="mt-2 text-sm leading-4 text-zinc-900 text-opacity-70 max-w-[150px]">
+                      {data.designation}
                     </p>
                   </div>
                 </div>

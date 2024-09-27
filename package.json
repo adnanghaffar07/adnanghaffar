@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.57.1",
     "@types/nodemailer": "^6.4.15",
     "formik": "^2.4.6",
     "next": "14.2.5",
+    "next-sanity": "^9.4.7",
     "nodemailer": "^6.9.14",
     "react": "^18",
     "react-dom": "^18",
+    "sanity": "^3.57.1",
+    "styled-components": "^6.1.13",
     "swiper": "^11.1.9",
     "yup": "^1.4.0"
   },

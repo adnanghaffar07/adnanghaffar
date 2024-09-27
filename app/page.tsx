@@ -1,6 +1,3 @@
-"use client";
-
-import "swiper/swiper-bundle.css";
 import "./globals.css";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
@@ -12,25 +9,38 @@ import Footer from "./components/Footer";
 import ContactSection from "./components/ContactSection";
 import LifeStyle from "./components/LifeStyle";
 import Expertise from "./components/Expertise";
-import { ToolLogosSection } from "./components/ToolLogosSection";
+import ToolLogosSection from "./components/ToolLogosSection";
 import RecentProjects from "./components/RecentProjects";
 import Testimonials from "./components/Testimonials";
+import { client } from "@/sanity/lib/client";
 
-export default function Home() {
+async function getData() {
+  const query = `*[_type=='homepage'][0]`;
+  try {
+    const fetchData = await client.fetch(query);
+    return fetchData || [];
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return [];
+  }
+}
+export default async function Home() {
+  const fetchedData = await getData();
+
   return (
     <>
       <Header />
-      <HeroSection />
-      <ToolLogosSection />
-      <Expertise />
-      <AboutMe />
-      <HireMe />
-      <RecentProjects />
-      <LifeStyle />
-      <Services />
-      <Testimonials />
-      <Achievements />
-      <ContactSection />
+      <HeroSection data={fetchedData?.header} />
+      <ToolLogosSection data={fetchedData?.toolsLogoSection?.logoArray} />
+      <Expertise data={fetchedData?.toolsAndExpertise} />
+      <AboutMe data={fetchedData?.aboutMe} />
+      <HireMe data={fetchedData?.hireMe} />
+      <RecentProjects data={fetchedData?.recentProjects} />
+      <LifeStyle data={fetchedData?.lifeStyle} />
+      <Services data={fetchedData?.servicesHightlight} />
+      <Testimonials data={fetchedData?.testimonials} />
+      <Achievements data={fetchedData?.achievements} />
+      <ContactSection data={fetchedData?.formSection} />
       <Footer />
     </>
   );

@@ -5,34 +5,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 import "../globals.css";
 
-const achievementCards = [
-  {
-    title: "Strategic Leadership",
-    description:
-      "Tripled revenue in three years by  executing a business strategy that  solidified CodeAutomation.ai's market  position.",
-  },
-  {
-    title: "Product Development & Innovation",
-    description:
-      "Led the creation of the AI Code  Generator, cutting client development  time by 40%, and launched innovative,  user-friendly products.",
-  },
-  {
-    title: "Market Expansion",
-    description:
-      "Drove global expansion into Asia and  Europe, diversified revenue, and  formed strategic industry partnerships.",
-  },
-  {
-    title: "Team Building & Leadership",
-    description:
-      "Grew the team from 10 to 200, fostering  a culture of innovation and launching a  program to developfuture leaders.",
-  },
-  {
-    title: "Financial Management & Fundraising",
-    description:
-      "Raised over $50million in funding and  established strong financial practices,  significantly increasing profitability.",
-  },
-];
-const Achievements = () => {
+const Achievements = ({ data }: { data: any }) => {
   const [achievementSlideStyle, setAchievementSlideStyle] = useState({
     width: "304px",
     height: "326px",
@@ -62,10 +35,10 @@ const Achievements = () => {
     >
       <div className="flex flex-col w-fit px-2 sm:px-5 md:px-10">
         <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
-          My Overall Achievements
+          {data.subTitle}
         </p>
         <p className="bg-clip-text text-transparent bg-[linear-gradient(274deg,#5E3BEE_25%,#B416FF_100%)] mt-2 md:mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight pb-2">
-          Key Achievements
+          {data.title}
         </p>
       </div>
 
@@ -82,7 +55,7 @@ const Achievements = () => {
           className="px-5 md:px-10"
           style={{ paddingBottom: "40px" }}
         >
-          {achievementCards?.map((card, index) => (
+          {data.achievementsArray?.map((card: any, index: number) => (
             <SwiperSlide
               className="flex flex-col px-6 py-6 rounded-lg border-solid shadow-sm bg-[#F5FCFF] border-b-[3px] hover:border-b-indigo-600 h-[265px] md:h-[326px] w-[250px] md:w-[304px] max-md:px-5"
               key={index}
@@ -95,7 +68,7 @@ const Achievements = () => {
               </div>
               <div className="flex flex-col mt-4 md:mt-6">
                 <p className="text-sm md:text-xl font-bold leading-snug text-[#1C1E53]">
-                  {card.title}
+                  {card.heading}
                 </p>
                 <p className="mt-3 md:mt-6 text-xs md:text-base leading-6 text-[#1C1E53]">
                   {card.description}
@@ -103,9 +76,6 @@ const Achievements = () => {
               </div>
             </SwiperSlide>
           ))}
-          {/* <div className="swiper-pagination"></div>
-          <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div> */}
           <div
             className="swiper-pagination"
             style={{
@@ -114,8 +84,6 @@ const Achievements = () => {
               zIndex: 50,
             }}
           ></div>
-          {/* <div className="swiper-button-next"></div>
-          <div className="swiper-button-prev"></div> */}
           <div
             className="swiper-button-next bg-[#5E3BEE] rounded-full w-10 h-10 md:w-12 md:h-12 flex justify-center items-center shadow-lg text-white me-1"
             style={{
