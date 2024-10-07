@@ -17,8 +17,8 @@ const HeroSection = () => {
           <div className="flex flex-col max-w-full font-bold justify-center">
             <p className="text-base sm:text-2xl xl:text-2xl 2xl:text-[26px] text-[#282938] bg-clip-text bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)]">
               Hey, I am
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] ms-2">
-                ADNAN
+               <span className="mt-6 bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE] ms-2">
+                ADNAN (The CEO)
               </span>
             </p>
             <div className="flex flex-col mt-4 w-full text-3xl sm:text-[36px] lg:text-[46px] xl:text-[56px] leading-tight justify-center">
@@ -40,13 +40,13 @@ const HeroSection = () => {
           </div>
 
           <div className="flex gap-4 sm:gap-6 items-center self-start mt-8 ">
-            <Link
+            {/* <Link
               href="https://www.upwork.com/freelancers/adnanghaffar"
               target="_blank"
               className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[190px] lg:w-[200px] xl:w-[255px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300 hover:bg-[linear-gradient(274deg,#B416FF_44.65%,#5E3BEE_97.09%)]"
             >
               Upwork Top Rated
-            </Link>
+            </Link> */}
 
             <Link
               href="https://calendly.com/adnanghaffar007"
