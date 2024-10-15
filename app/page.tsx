@@ -26,7 +26,7 @@ async function getData() {
 }
 export default async function Home() {
   const fetchedData = await getData();
-  // console.log("fetchedData : ",fetchedData)
+  // console.log("fetchedData :",fetchedData)
 
   return (
     <>
