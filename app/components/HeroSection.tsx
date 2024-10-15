@@ -33,7 +33,7 @@ const HeroSection = ({ data }: { data: any }) => {
           </div>
 
           <div className="flex gap-4 sm:gap-6 items-center self-start mt-8 ">
-            {data?.firstButton && (
+            {/* {data?.firstButton && (
               <Link
                 href={data?.firstButton?.buttonLink}
                 target="_blank"
@@ -41,7 +41,7 @@ const HeroSection = ({ data }: { data: any }) => {
               >
                 {data?.firstButton?.buttonText}
               </Link>
-            )}
+            )} */}
 
             {data?.secondButton && (
               <Link
