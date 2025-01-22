@@ -10,14 +10,13 @@ const ToolLogosSection = ({ data }: { data: any }) => {
           {data?.map((logo: any, index: number) => (
             <div
               key={index}
-              className="w-28 md:w-[154px] h-28 md:h-[154px] bg-[#EAEAEA] rounded-[26px] flex items-center justify-center mx-8 flex-shrink-0"
+              className="w-28 md:w-[154px] h-28 md:h-[154px] bg-[#EAEAEA] px-2 rounded-[26px] flex items-center justify-center mx-8 flex-shrink-0"
             >
-              <Image
+              <img
                 src={urlFor(logo).url()}
                 alt={logo?.alt}
-                width={96}
-                height={96}
-                className="w-[76px] md:w-[96px] h-[76px] md:h-[96px]"
+              
+                className=" h-[76px] md:h-[96px]"
               />
             </div>
           ))}

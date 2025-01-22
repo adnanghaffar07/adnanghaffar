@@ -85,19 +85,19 @@ const Footer = () => {
             </p>
             <div className="flex flex-wrap gap-4 items-center my-auto">
               <Link
-                href="https://www.facebook.com/AdnanGhaffarCh"
+                href="https://github.com/adnanghaffar07"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Image
-                  src="/facebook-white.svg"
-                  alt="facebook"
+                  src="/github.png"
+                  alt="Github"
                   width={32}
                   height={32}
                   className="object-contain shrink-0 self-stretch my-auto w-5 sm:w-8 rounded-md aspect-square"
                 />
               </Link>
-              <Link
+              {/* <Link
                 href="https://www.instagram.com/itsadnanghaffar/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -109,8 +109,8 @@ const Footer = () => {
                   height={32}
                   className="object-contain shrink-0 self-stretch my-auto w-5 sm:w-8 rounded-md aspect-square"
                 />
-              </Link>
-              <Link
+              </Link> */}
+              {/* <Link
                 href="https://twitter.com/adnanghaffar007"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -122,8 +122,8 @@ const Footer = () => {
                   height={32}
                   className="object-contain shrink-0 self-stretch my-auto w-5 sm:w-8 rounded-md aspect-square"
                 />
-              </Link>
-              <Link
+              </Link> */}
+              {/* <Link
                 href="https://www.linkedin.com/in/adnanghaffar007"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -135,7 +135,7 @@ const Footer = () => {
                   height={32}
                   className="object-contain shrink-0 self-stretch my-auto w-5 sm:w-8 rounded-md aspect-square"
                 />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

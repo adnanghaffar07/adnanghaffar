@@ -58,36 +58,7 @@ const HeroSection = ({ data }: { data: any }) => {
               </Link>
             )}
           </div>
-          <div className="absolute -right-0 -top-8 z-0 flex-col w-4 gap-4 xl:gap-8 sm:hidden flex">
-            <div>
-              <p className="text-[#5E3BEE] vertical-text text-xs">
-                {data?.socialIconSection?.title}
-              </p>
-            </div>
-
-            <div className="shrink-0 self-center w-px h-6 xl:h-16 border border-[#5E3BEE] border-solid" />
-            {data?.socialIconSection?.iconsArray?.map(
-              (icon: any, index: number) => {
-                return (
-                  <Link
-                    href={icon.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    key={index}
-                  >
-                    {icon.image && (
-                      <Image
-                        src={urlFor(icon.image).url()}
-                        alt={icon?.image?.alt}
-                        width={16}
-                        height={16}
-                      />
-                    )}
-                  </Link>
-                );
-              }
-            )}
-          </div>
+      
         </div>
 
         <div className="relative mt-6 xl:mt-16">
@@ -102,7 +73,7 @@ const HeroSection = ({ data }: { data: any }) => {
             />
           )}
 
-          <div className="absolute -right-0 sm:-right-8 lg:-right-8 xl:-right-8 2xl:-right-16 top-[400px] sm:top-44 lg:top-8 xl:top-16 2xl:top-24 z-0 flex-col px-0.5 pt-36 w-6 max-md:pt-24 gap-4 xl:gap-8 hidden sm:flex">
+          {/* <div className="absolute -right-0 sm:-right-8 lg:-right-8 xl:-right-8 2xl:-right-16 top-[400px] sm:top-44 lg:top-8 xl:top-16 2xl:top-24 z-0 flex-col px-0.5 pt-36 w-6 max-md:pt-24 gap-4 xl:gap-8 hidden sm:flex">
             <div>
               <p className="text-[#5E3BEE] vertical-text">
                 {data?.socialIconSection?.title}
@@ -131,7 +102,7 @@ const HeroSection = ({ data }: { data: any }) => {
                 );
               }
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

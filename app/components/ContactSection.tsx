@@ -114,7 +114,7 @@ const ContactSection = ({ data }: { data: any }) => {
                   {data.subheading}
                 </p>
               </div>
-              <div className="lg:flex gap-4 items-center mt-8 w-44 max-w-full hidden">
+              {/* <div className="lg:flex gap-4 items-center mt-8 w-44 max-w-full hidden">
                 {data?.iconsArray.map((icon: any, index: number) => {
                   return (
                     <Link
@@ -135,7 +135,7 @@ const ContactSection = ({ data }: { data: any }) => {
                     </Link>
                   );
                 })}
-              </div>
+              </div> */}
 
               <div className="lg:flex gap-4 items-center pr-4 mt-8 uppercase tracking-[2px] hidden">
                 {data?.image && (
