@@ -43,7 +43,7 @@ const HeroSection = ({ data }: { data: any }) => {
               </Link>
             )} */}
 
-            {data?.secondButton && (
+{/*             {data?.secondButton && (
               <Link
                 href={data?.secondButton.buttonLink}
                 target="_blank"
@@ -56,7 +56,7 @@ const HeroSection = ({ data }: { data: any }) => {
                   </span>
                 </span>
               </Link>
-            )}
+            )} */}
           </div>
       
         </div>
