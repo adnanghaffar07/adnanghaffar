@@ -40,7 +40,7 @@ const Expertise = ({ data }: { data: any }) => {
       className="flex flex-col justify-center items-center py-6 md:py-16 max-w-[1312px] mx-auto"
       id="expertise"
     >
-      <div className="flex flex-col px-2 sm:px-5 2xl:px-0">
+      <div className="flex flex-col px-4 2xl:px-0">
         <div className="flex flex-col justify-center w-fit">
           <p className="self-start text-base md:text-xl font-semibold text-center text-[#282938]">
             {data.subTitle}

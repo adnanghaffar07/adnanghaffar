@@ -1,13 +1,12 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { urlFor } from "@/sanity/lib/image";
 
 const HeroSection = ({ data }: { data: any }) => {
   return (
     <section className="bg-[#F5FCFF]">
       <div className="flex flex-col-reverse lg:flex-row justify-center items-center gap-4 lg:gap-10 xl:gap-[60px] pb-4 sm:pb-[100px] md:pb-[134px] max-w-[1270px] mx-auto">
-        <div className="flex flex-col mt-10 lg:mt-[93px] justify-center items-center relative">
+        <div className="flex flex-col mt-10 lg:mt-[93px] justify-center items-center px-6 relative">
           <div className="flex flex-col max-w-full font-bold justify-center">
             <p className="text-base sm:text-2xl xl:text-2xl 2xl:text-[26px] text-[#282938] bg-clip-text bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)]">
               {data?.firstWords}

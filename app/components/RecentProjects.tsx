@@ -41,7 +41,7 @@ const RecentProjects = ({ data }: { data: any }) => {
 
   return (
     <section className="max-w-[1412px] mx-auto">
-      <div className="flex flex-col px-1 sm:px-5 py-8 md:py-12 w-full max-md:max-w-full items-center justify-center">
+      <div className="flex flex-col px-4 py-8 md:py-12 w-full max-md:max-w-full items-center justify-center">
         <div className="flex flex-col items-start w-full max-md:max-w-full">
           <div className="flex flex-col justify-center max-w-full w-[768px]">
             <p className="self-start text-base sm:text-xl font-semibold text-center text-[#282938]">
