@@ -2,19 +2,43 @@
 
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation"; // Added imports
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement | null>(null);
+  const router = useRouter(); // Added router
+  const pathname = usePathname(); // Added pathname
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const handleScroll = (e: any, targetId: any) => {
     e.preventDefault();
+    
+    // If we're not on the home page, navigate there first
+    if (pathname !== "/") {
+      router.push(`/#${targetId}`);
+      setIsModalOpen(false);
+      return;
+    }
+    
+    // If we're already on home page, scroll to section
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+    setIsModalOpen(false);
+  };
+
+  const handleHomeClick = (e: any) => {
+    e.preventDefault();
+    if (pathname !== "/") {
+      router.push("/");
+    } else {
+      // If already on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
@@ -43,12 +67,15 @@ const Header = () => {
           alt="logo"
           width={200}
           height={30}
-          className="w-[120px] h-[18px] sm:w-[200px] sm:h-[30px]"
+          className="w-[120px] h-[18px] sm:w-[200px] sm:h-[30px] cursor-pointer"
+          onClick={handleHomeClick}
         />
 
         <ul className=" gap-8 text-xl text-[#1C1E53] max-md:max-w-full hidden xl:flex">
           <li className="text-[#5E3BEE]">
-            <a className="cursor-pointer font-medium">Home</a>
+            <a className="cursor-pointer font-medium" onClick={handleHomeClick}>
+              Home
+            </a>
           </li>
           <li>
             <a
@@ -121,7 +148,7 @@ const Header = () => {
           <ul className="text-[#282938] flex flex-col gap-6">
             <li
               className="mx-5 sm:mx-10 flex justify-between font-bold items-center border-b pb-6 border-[#D6D6D6]"
-              onClick={() => setIsModalOpen(false)}
+              onClick={handleHomeClick}
             >
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#B416FF] to-[#5E3BEE]">
                 Home
@@ -135,10 +162,7 @@ const Header = () => {
             </li>
             <li
               className="mx-5 sm:mx-10 flex justify-between font-bold items-center border-b pb-6 border-[#D6D6D6] text-[#282938]"
-              onClick={(e) => {
-                toggleModal();
-                handleScroll(e, "achievements");
-              }}
+              onClick={(e) => handleScroll(e, "achievements")}
             >
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#282938] to-[#282938] hover:from-[#B416FF] hover:to-[#5E3BEE]">
                 Achievements
@@ -152,10 +176,7 @@ const Header = () => {
             </li>
             <li
               className="mx-5 sm:mx-10 flex justify-between font-bold items-center border-b pb-6 border-[#D6D6D6]"
-              onClick={(e) => {
-                toggleModal();
-                handleScroll(e, "expertise");
-              }}
+              onClick={(e) => handleScroll(e, "expertise")}
             >
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#282938] to-[#282938] hover:from-[#B416FF] hover:to-[#5E3BEE]">
                 Tools & Expertise
@@ -169,10 +190,7 @@ const Header = () => {
             </li>
             <li
               className="mx-5 sm:mx-10 flex justify-between font-bold items-center border-b pb-6 border-[#D6D6D6]"
-              onClick={(e) => {
-                toggleModal();
-                handleScroll(e, "about");
-              }}
+              onClick={(e) => handleScroll(e, "about")}
             >
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#282938] to-[#282938] hover:from-[#B416FF] hover:to-[#5E3BEE]">
                 About me
@@ -186,10 +204,7 @@ const Header = () => {
             </li>
             <li
               className="mx-5 sm:mx-10 flex justify-between font-bold items-center border-b pb-6 border-[#D6D6D6]"
-              onClick={(e) => {
-                toggleModal();
-                handleScroll(e, "portfolio");
-              }}
+              onClick={(e) => handleScroll(e, "portfolio")}
             >
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#282938] to-[#282938] hover:from-[#B416FF] hover:to-[#5E3BEE]">
                 Portfolio
@@ -203,10 +218,7 @@ const Header = () => {
             </li>
             <li
               className="mx-5 sm:mx-10 flex justify-between font-bold items-center"
-              onClick={(e) => {
-                toggleModal();
-                handleScroll(e, "contact");
-              }}
+              onClick={(e) => handleScroll(e, "contact")}
             >
               <p className="bg-clip-text text-transparent bg-gradient-to-r from-[#282938] to-[#282938] hover:from-[#B416FF] hover:to-[#5E3BEE]">
                 Contact me

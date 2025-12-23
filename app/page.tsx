@@ -30,7 +30,6 @@ export default async function Home() {
 
   return (
     <>
-      <Header />
       <HeroSection data={fetchedData?.header} />
       <ToolLogosSection data={fetchedData?.toolsLogoSection?.logoArray} />
       <Expertise data={fetchedData?.toolsAndExpertise} />
@@ -42,7 +41,6 @@ export default async function Home() {
       <Testimonials data={fetchedData?.testimonials} />
       <Achievements data={fetchedData?.achievements} />
       <ContactSection data={fetchedData?.formSection} />
-      <Footer />
     </>
   );
 }
