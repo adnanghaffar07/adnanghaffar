@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 const HeroSection = ({ data }: { data: any }) => {
   return (
@@ -32,17 +33,30 @@ const HeroSection = ({ data }: { data: any }) => {
           </div>
 
           <div className="flex gap-4 sm:gap-6 items-center self-start mt-8 ">
-            {/* {data?.firstButton && (
+            {data?.firstButton && (
               <Link
-                href={data?.firstButton?.buttonLink}
+                href={data.firstButton.buttonLink}
                 target="_blank"
-                className="text-white rounded-lg bg-[linear-gradient(274deg,#5E3BEE_44.65%,#B416FF_97.09%)] w-[190px] lg:w-[200px] xl:w-[255px] h-[56px] sm:h-[63px] lg:h-[63px] xl:h-[73px] max-md:px-5 text-[22px] flex items-center justify-center text-base lg:text-xl xl:text-[22px] group transition-transform duration-300 hover:bg-[linear-gradient(274deg,#B416FF_44.65%,#5E3BEE_97.09%)]"
+                className="
+      relative flex items-center justify-center
+      w-[190px] sm:w-[265px] lg:w-[310px]
+      h-[56px] sm:h-[63px] xl:h-[73px]
+      px-2 md:px-5 rounded-lg
+      text-white font-semibold
+      text-sm md:text-lg lg:text-xl xl:text-[22px]
+      bg-gradient-to-r from-[#5E3BEE] via-[#8844FF] to-[#B416FF]
+      transition-all duration-300 ease-in-out
+      hover:scale-105 hover:brightness-110
+      focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500
+      active:scale-95
+      group
+    "
               >
-                {data?.firstButton?.buttonText}
+                {data.firstButton.buttonText}
               </Link>
-            )} */}
+            )}
 
-{/*             {data?.secondButton && (
+            {/*             {data?.secondButton && (
               <Link
                 href={data?.secondButton.buttonLink}
                 target="_blank"
@@ -57,7 +71,7 @@ const HeroSection = ({ data }: { data: any }) => {
               </Link>
             )} */}
           </div>
-      
+
         </div>
 
         <div className="relative mt-6 xl:mt-16">
