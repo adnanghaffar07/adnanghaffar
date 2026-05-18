@@ -13,14 +13,14 @@ export async function POST(request: any): Promise<any> {
     port: 465,
     secure: true,
     auth: {
-      user: "umaid@codeautomation.dev",
-      pass: "ohqgvbhpwfcjbevh",
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASSWORD,
     },
   });
 
   const mailOptions = {
-    from: "umaid@codeautomation.dev",
-    to: ["adnan@codeautomation.dev"],
+    from: process.env.EMAIL_USERNAME,
+    to: ["ayesha@codeautomation.dev"],
     subject: `Portfolio website form: ${name} contacted`,
     html: `
     <!DOCTYPE html>
