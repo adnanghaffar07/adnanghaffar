@@ -11,9 +11,10 @@ const lexendDeca = Lexend_Deca({
 });
 
 export const metadata: Metadata = {
-  title: "Adnan Ghaffar | AI Agents, Workflow Automation & CEO, CodeAutomation.ai",
+  title:
+    "Adnan Ghaffar | AI Agents, Workflow Automation & Modern Web Solutions",
   description:
-    "Experienced app and web developer offering professional development and testing services. Explore my portfolio for high-quality solutions tailored to your needs",
+    "Building intelligent AI agents, automation systems, and modern applications that streamline operations and drive business growth.",
 };
 
 export default function RootLayout({

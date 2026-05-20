@@ -101,18 +101,6 @@ const Testimonials = ({ data }: { data: any }) => {
                 <p className="mt-4 text-xl font-medium text-neutral-700 leading-8 h-[160px]">
                   {card.description}
                 </p>
-                {card.link ? (
-                  <a
-                    href={`https://${card.link}`}
-                    className="text-lg font-semibold text-fuchsia-600"
-                  >
-                    {card.buttonText}
-                  </a>
-                ) : (
-                  <p className="text-lg font-semibold text-fuchsia-600">
-                    {card.buttonText}
-                  </p>
-                )}
               </div>
             </SwiperSlide>
           ))}
