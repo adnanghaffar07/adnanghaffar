@@ -12,9 +12,9 @@ const lexendDeca = Lexend_Deca({
 
 export const metadata: Metadata = {
   title:
-    "Adnan Ghaffar | AI Agents, Workflow Automation & Modern Web Solutions",
+    "Adnan Ghaffar | CEO & Founder of CodeAutomation | AI Agents & Automation Solutions",
   description:
-    "Building intelligent AI agents, automation systems, and modern applications that streamline operations and drive business growth.",
+    "Adnan Ghaffar, CEO & Founder of CodeAutomation, specializes in AI agents, workflow automation, and modern web solutions that help businesses streamline operations and accelerate growth.",
 };
 
 export default function RootLayout({
